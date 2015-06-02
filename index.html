@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <style>
+      html, body{
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #map-canvas {
+        height: 50%;
+        width: 90%;
+        margin: auto;
+        padding: 0px
+      }
+      .form{
+        margin: 50px auto;
+        width: 500px;
+      }
+      label{
+        float: left;
+
+      }
+      input{
+        float: right;
+        padding: 3px;
+      }
+      .field{
+        width: 100%;
+        height: 30px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+    var map;
+    function initialize() {
+      var mapOptions = {
+        zoom: 8,
+        center: new google.maps.LatLng(-34.397, 150.644)
+      };
+      map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    $(document).ready(function() {
+
+
+      $("#route").click(function() {
+        var start = $("#clickTime_address").val();
+        var home_dest = $("#home_dest").val();
+        var first_dest = $("#first_dest").val();
+        var secnd_dest = $("#secnd_dest").val();
+        var third_dest = $("#third_dest").val();
+
+
+
+      });
+
+
+    })
+
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+
+    <div class="form">
+    <div class="field"><label for="clickTime_address">House Address*:</label> <input type="text" name="clickTime" id="clickTime_address" size="50"/></div>
+    <div class="field"><label for="home_dest">Destination Address*:</label>  <input type="text" name="home_dest" id="home_dest" value="282 2nd Street 4th floor, San Francisco, CA 94105" size="50" /></div>
+    <div class="field"><label for="first_dest">Stop 1:</label>  <input type="text" name="first_dest" id="first_dest" size="50"/></div>
+    <div class="field"><label for="secnd_dest">Stop 2:</label>  <input type="text" name="secnd_dest" id="secnd_dest" size="50"/></div>
+    <div class="field"><label for="third_dest">Stop 3:</label>  <input type="text" name="third_dest" id="third_dest" size="50"/></div>
+    <div style="clear:both"></div>
+    <input type="button" value="Route" id="route" style="float:none;"/>
+    </div>
+  </body>
+</html>
